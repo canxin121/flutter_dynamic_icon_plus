@@ -1,8 +1,6 @@
 package com.solusibejo.flutter_dynamic_icon_plus
 
 object Arguments {
-    const val iconName = "iconName"
-    const val brands = "brands"
-    const val manufactures = "manufactures"
-    const val models = "models"
+    const val ICON_NAME = "iconName"
+    const val FORCE_EXIT = "forceExit"
 }

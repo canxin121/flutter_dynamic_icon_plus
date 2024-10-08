@@ -13,15 +13,11 @@ class FlutterDynamicIconPlus {
   /// work for Android platform only
   static Future<void> setAlternateIconName({
     String? iconName,
-    List<String> blacklistBrands = const [],
-    List<String> blacklistManufactures = const [],
-    List<String> blacklistModels = const [],
+    bool? forceExit,
   }) async {
     await FlutterDynamicIconPlusPlatform.instance.setAlternateIconName(
       iconName: iconName,
-      blacklistBrands: blacklistBrands,
-      blacklistManufactures: blacklistManufactures,
-      blacklistModels: blacklistModels,
+      forceExit: forceExit,
     );
   }
 

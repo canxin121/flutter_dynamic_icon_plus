@@ -149,8 +149,8 @@ object ComponentUtil {
     }
 
     fun changeAppIcon(context: Context, packageManager: PackageManager, packageName: String){
-        val sp = context.getSharedPreferences(FlutterDynamicIconPlusPlugin.pluginName, Context.MODE_PRIVATE)
-        sp.getString(FlutterDynamicIconPlusPlugin.appIcon, null).let { name ->
+        val sp = context.getSharedPreferences(FlutterDynamicIconPlusPlugin.PLUGIN_NAME, Context.MODE_PRIVATE)
+        sp.getString(FlutterDynamicIconPlusPlugin.APP_ICON, null).let { name ->
             val currentlyEnabled = getCurrentEnabledAlias(context)
             Log.d("changeAppIcon", "Currently Enabled: $currentlyEnabled")
             Log.d("changeAppIcon", "Will Enabled: $name")
@@ -166,8 +166,8 @@ object ComponentUtil {
     }
 
     fun removeCurrentAppIcon(context: Context){
-        val sp = context.getSharedPreferences(FlutterDynamicIconPlusPlugin.pluginName, Context.MODE_PRIVATE)
-        sp.edit()?.remove(FlutterDynamicIconPlusPlugin.appIcon)?.apply()
+        val sp = context.getSharedPreferences(FlutterDynamicIconPlusPlugin.PLUGIN_NAME, Context.MODE_PRIVATE)
+        sp.edit()?.remove(FlutterDynamicIconPlusPlugin.APP_ICON)?.apply()
     }
 
     private fun setupIcon(context: Context, packageManager: PackageManager, packageName: String, newName: String?, currentlyName: String?){

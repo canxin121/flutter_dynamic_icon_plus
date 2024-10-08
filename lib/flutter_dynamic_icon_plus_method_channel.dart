@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dynamic_icon_plus/src/consts/arguments.dart';
@@ -27,23 +29,12 @@ class MethodChannelFlutterDynamicIconPlus
   }
 
   @override
-  Future<void> setAlternateIconName({
-    String? iconName,
-    List<String> blacklistBrands = const [],
-    List<String> blacklistManufactures = const [],
-    List<String> blacklistModels = const [],
-  }) async {
-    final brands = blacklistBrands.join(',');
-    final manufactures = blacklistManufactures.join(',');
-    final models = blacklistModels.join(',');
-
+  Future<void> setAlternateIconName({String? iconName, bool? forceExit}) async {
     await methodChannel.invokeMethod(
       MethodNames.setAlternateIconName,
       {
         Arguments.iconName: iconName,
-        Arguments.brands: brands,
-        Arguments.manufactures: manufactures,
-        Arguments.models: models,
+        Arguments.forceExit: forceExit,
       },
     );
   }
